@@ -1,12 +1,10 @@
 import { Router } from "express";
 
-
+import { getProjects } from "../controllers/project.controller.js";
 
 const router=Router();
 
-router.get('/',(req,res)=>{
-    res.send("You made a routes!!!")
-})
+router.get('/',getProjects)
 
 
 export default router;
