@@ -1,0 +1,15 @@
+version: '3'
+services:
+  postgres:
+    image: postgres:13
+    container_name: postgres-test
+    # restart: always
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_DB: rest
+    ports:
+      - 5432:5432
+
+# The reason I run in docker that's because 
+# it's easy to tear down and clean up
