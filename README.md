@@ -96,3 +96,8 @@ docker ps
 ```
 docker pull node
 ```
+
+
+## What I need to improve?
+1. Jest Unit Test
+2. Complicated tables
