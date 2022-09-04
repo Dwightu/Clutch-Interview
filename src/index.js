@@ -10,7 +10,7 @@ import { sequelize } from "./database/database.js";
 const main=async()=>{
     try{
         await sequelize.sync();
-        app.listen(3000);
+        app.listen(5000);
         console.log('successfully connected!!')
     }catch(err){
         console.log(err,"Something went wrong!!")

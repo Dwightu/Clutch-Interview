@@ -1,5 +1,11 @@
 version: '3'
 services:
+  server:
+  # it will search for docker file
+    build: .
+    ports:
+      - '5000:5000'
+    container_name: server
   postgres:
     image: postgres:13
     container_name: postgres-test
@@ -10,6 +16,6 @@ services:
       POSTGRES_DB: rest
     ports:
       - 5432:5432
-
+# docker-compose up -d
 # The reason I run in docker that's because 
 # it's easy to tear down and clean up
