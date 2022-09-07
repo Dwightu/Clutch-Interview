@@ -5,7 +5,7 @@ export const sequelize = new Sequelize(
   "postgres", // username
   "postgres", // password
   {
-    host: "postgres",
+    host: "localhost",
     dialect: "postgres",
     // pool: {
     //   max: 5,

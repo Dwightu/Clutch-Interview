@@ -1,11 +1,10 @@
 version: '3'
 services:
-  server:
-  # it will search for docker file
-    build: .
-    ports:
-      - '5000:5000'
-    container_name: server
+  # server:
+  # # it will search for docker file
+  #   build: .
+  #   ports:
+  #     - '5000:5000'
   postgres:
     image: postgres:13
     container_name: postgres-test

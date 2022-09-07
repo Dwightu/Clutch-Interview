@@ -9,9 +9,12 @@ export async function createProject(req,res){
         {
             fields:["name","priority","description","deliverydate"],
         })
-        await res.json(newProject);
+        await res.status(200).json(newProject);
     }catch(err){
-
+        // 500 Status Code (Internal Server Error)
+        res.status(500).json({
+            message: err.message,
+        });
     }
 }
 
@@ -24,7 +27,7 @@ export async function getProjects(req,res){
         res.json(projects);
     }catch(err){
         res.status(500).json({
-            message: error.message,
+            message: err.message,
         });
     }
 }
@@ -33,7 +36,12 @@ export async function getProjects(req,res){
 export async function getOneProject(req,res){
     const {id}=req.params;
     try{
-        const project=await Project.findByPk(id);
+        // const project=await Project.findByPk(id);
+        const project=await Project.findAll({
+            where:{
+                id:id
+            }
+        })
         res.json(project);
     }catch(err){
         res.status(500).json({
@@ -53,9 +61,8 @@ export async function updateProject(req,res){
         await project.save();
         res.json(project);
     }catch(err){
-        return res.status(500).json({ message: error.message });
+        return res.status(500).json({ message: err.message });
     }
-
 }
 
 export async function deleteProject(req,res){
@@ -69,6 +76,6 @@ export async function deleteProject(req,res){
         // Delete project
         return res.sendStatus(204);
     }catch(err){
-        return res.status(500).json({ message: error.message });
+        return res.status(500).json({ message: err.message });
     }
 }

@@ -9,7 +9,9 @@ import { sequelize } from "./database/database.js";
 
 const main=async()=>{
     try{
-        await sequelize.sync();
+        // User.sync({ force: true })  
+        // This creates the table, dropping it first if it already existed
+        await sequelize.sync({force:true});
         app.listen(5000);
         console.log('successfully connected!!')
     }catch(err){
